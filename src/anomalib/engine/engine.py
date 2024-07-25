@@ -863,7 +863,7 @@ class Engine:
         else:
             self.trainer.fit(model, train_dataloaders, val_dataloaders, datamodule, ckpt_path)
 
-        self.trainer.test(model, test_dataloaders, ckpt_path=ckpt_path, datamodule=datamodule)
+        # self.trainer.test(model, test_dataloaders, ckpt_path=ckpt_path, datamodule=datamodule)
   
 
         
