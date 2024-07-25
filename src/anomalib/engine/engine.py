@@ -862,17 +862,10 @@ class Engine:
             self.trainer.validate(model, val_dataloaders, None, verbose=False, datamodule=datamodule)
         else:
             self.trainer.fit(model, train_dataloaders, val_dataloaders, datamodule, ckpt_path)
-        # 시간 측정 시작
-        start_time = time.time()
+
         self.trainer.test(model, test_dataloaders, ckpt_path=ckpt_path, datamodule=datamodule)
-        end_time = time.time()
-        test_duration = end_time - start_time
-        print("test 시간 :", test_duration)
-        print()
-        
-        # 실행 시간을 텍스트 파일에 추가
-        with open('test_duration.txt', 'a') as file:
-            file.write(f"Test Duration: {test_duration} seconds\n")
+  
+
         
         
     def export(
